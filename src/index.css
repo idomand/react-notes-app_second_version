@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+/* ====================================================== */
+.mainBody {
+  background-color: darkgrey;
+  border: black 1px solid;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  justify-self: center;
+}
+
+.mainBody > div {
+  border: solid red 1px;
+}
+
+#inputDiv {
+  background-color: lightgray;
+  margin: 25px;
+}
+#inputDiv > form {
+}
+
+#inputDiv > form > input {
+  display: block;
+  height: 30=px;
+  width: 45px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.class-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.class-list > li {
+}
+
+.card-item {
+  background-color: lightgray;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  display: flex;
+}
+.card-bottom {
+  border: black 0.2px solid;
+  padding: 3px;
+}
+P {
+  padding: 0;
+  margin: 2px;
+}
