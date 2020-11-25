@@ -24,7 +24,9 @@ export default class CardsList extends Component {
         <li key={element.dateCreated}>
           <CardItem
             text={element.userText}
+            title={element.userTitle}
             newId={element.dateCreated}
+            timeCreated={element.dateCreated}
             DeleteCallback={this.deleteCardWithKey}
           />
         </li>

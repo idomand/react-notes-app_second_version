@@ -3,18 +3,22 @@ import React, { Component } from "react";
 export default class InputDiv extends Component {
   constructor(props) {
     super(props);
-    this.state = { userText: "", dateCreated: "" };
+    this.state = { userText: "", dateCreated: "", userTitle: "" };
   }
 
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.userText) {
-      let { userText, dateCreated } = this.state;
+      let { userText, dateCreated, userTitle } = this.state;
       dateCreated = Date.now().toString();
       this.setState({ dateCreated: Date.now() });
-      const userInfo = { userText: userText, dateCreated: dateCreated };
+      const userInfo = {
+        userText: userText,
+        dateCreated: dateCreated,
+        userTitle: userTitle,
+      };
       this.sendData(userInfo);
-      this.setState({ userText: "" });
+      this.setState({ userText: "", userTitle: "" });
     }
   }
 
@@ -22,9 +26,15 @@ export default class InputDiv extends Component {
     this.props.parentCallback(message);
   }
 
-  handleChange(event) {
+  handleChangeInText(event) {
     const value = event.target.value;
     this.setState({ userText: value, dateCreated: "" });
+  }
+
+  handleChangeInTitle(event) {
+    const value = event.target.value;
+    this.setState({ userTitle: value });
+    console.log("this.state.userTitle :>> ", this.state.userTitle);
   }
 
   render() {
@@ -32,14 +42,22 @@ export default class InputDiv extends Component {
       <div id="inputDiv">
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <legend>My Notes App</legend>
+          <input
+            className="titleInput"
+            value={this.state.userTitle}
+            placeholder="enter title (if you want)"
+            onChange={(event) => {
+              this.handleChangeInTitle(event);
+            }}
+          ></input>
           <textarea
             value={this.state.userText}
             placeholder="write stuff"
             onChange={(event) => {
-              this.handleChange(event);
+              this.handleChangeInText(event);
             }}
           />
-          <input type="submit" name="add" value="add" />
+          <input  className='textInput' type="submit" name="add" value="add" />
         </form>
       </div>
     );
