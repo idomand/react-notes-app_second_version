@@ -22,20 +22,19 @@ export default class cardItem extends Component {
   render() {
     const time = new Date(parseInt(this.props.timeCreated));
     const newTime = time.toLocaleString();
-    console.log("time :>> ", time);
-    console.log("newTime :>> ", newTime);
 
     return (
       <div className="card-item">
         <div className="card-top">
-          <h2>{this.props.title}</h2>
+          <h4> {this.props.title}</h4>
           {newTime}
           <button
+            className="delete-button"
             onClick={() => {
               this.deleteCard();
             }}
           >
-            Delete
+            X
           </button>
         </div>
         <div className="card-bottom">{this.props.text}</div>

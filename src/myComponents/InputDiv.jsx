@@ -34,7 +34,6 @@ export default class InputDiv extends Component {
   handleChangeInTitle(event) {
     const value = event.target.value;
     this.setState({ userTitle: value });
-    console.log("this.state.userTitle :>> ", this.state.userTitle);
   }
 
   render() {
@@ -57,7 +56,7 @@ export default class InputDiv extends Component {
               this.handleChangeInText(event);
             }}
           />
-          <input  className='textInput' type="submit" name="add" value="add" />
+          <input className="textInput" type="submit" name="add" value="add" />
         </form>
       </div>
     );

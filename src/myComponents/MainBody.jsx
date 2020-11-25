@@ -17,7 +17,6 @@ export default class MainBody extends Component {
   render() {
     return (
       <div className="mainBody">
-        this is the main body
         <InputDiv parentCallback={this.callbackFunction} />
         <CardsList data={this.state.notesArray} />
       </div>

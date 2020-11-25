@@ -15,6 +15,7 @@ code {
 .mainBody {
   background-color: darkgrey;
   border: black 1px solid;
+  border-radius: 10px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
@@ -25,10 +26,7 @@ code {
 #inputDiv {
   background-color: lightgray;
   margin: 25px;
-  border: solid red 1px;
-}
-#inputDiv > form {
-  border: blue 1px solid;
+  border-radius: 15px;
 }
 
 .class-list {
@@ -39,7 +37,6 @@ code {
 }
 
 .card-item {
-  background-color: lightgray;
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
@@ -48,12 +45,13 @@ code {
   flex-direction: column;
 }
 
-.card-top > h2 {
+.card-top > h4 {
   margin: 0;
 }
 .card-bottom {
   border: black 0.2px solid;
   padding: 3px;
+  background-color: lightgray;
 }
 P {
   padding: 0;
@@ -68,4 +66,11 @@ P {
 .textInput {
   display: block;
   margin: auto;
+}
+
+.delete-button {
+  margin-left: 3px;
+  background-color: lightsalmon;
+  opacity: 80%;
+  border-radius: 5px;
 }
