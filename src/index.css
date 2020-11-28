@@ -52,7 +52,6 @@ code {
   border: black 0.2px solid;
   padding: 3px;
   background-color: lightsalmon;
-  /* background-color: lawngreen; */
   border-radius: 15px;
 }
 P {
@@ -68,13 +67,16 @@ P {
 .textInput {
   display: block;
   margin: auto;
+  background-color: lightsalmon;
+  opacity: 90%;
+  border-radius: 5px;
 }
 
 .my-button {
   margin-left: 3px;
   margin-bottom: 5px;
   background-color: lightsalmon;
-  opacity: 80%;
+  opacity: 90%;
   border-radius: 5px;
 }
 
@@ -102,4 +104,12 @@ P {
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
+}
+
+span {
+  margin-right: 10px;
+}
+
+.modelInput > input {
+  margin: auto;
 }

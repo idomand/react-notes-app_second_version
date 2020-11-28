@@ -9,15 +9,10 @@ export default function CardItem(props) {
     new Date(parseInt(props.timeCreated))
   );
   const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
-  //
-  //
+
   function deleteCard() {
     props.DeleteCallback(props.newId);
   }
-
-  const time = new Date(parseInt(props.timeCreated));
-  const newTime = time.toLocaleString();
-
   const openModal = () => {
     setIsOpen(true);
   };
@@ -30,7 +25,7 @@ export default function CardItem(props) {
     } else if (element === "userText") {
       setUserText(value);
     }
-    setTimeDisplay(Date.now());
+    setTimeDisplay(new Date().toLocaleString());
   };
 
   return (

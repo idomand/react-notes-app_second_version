@@ -3,12 +3,14 @@ import React, { useState } from "react";
 export default function ModalInput(props) {
   const [userTitle, setUserTitle] = useState(props.userTitle);
   const [userText, setUserText] = useState(props.userText);
-  //
-  //
+
   const submitUpdate = (event) => {
     event.preventDefault();
-    props.changeInModalCallback("userTitle", userTitle);
-    props.changeInModalCallback("userText", userText);
+
+    if (userTitle !== props.userTitle || userText !== props.userText) {
+      props.changeInModalCallback("userTitle", userTitle);
+      props.changeInModalCallback("userText", userText);
+    }
   };
   const changeHandler = (event, element) => {
     if (element === "userTitle") {
@@ -21,26 +23,34 @@ export default function ModalInput(props) {
   return (
     <>
       <form
+        className="modelInput"
         onSubmit={(event) => {
           submitUpdate(event);
         }}
       >
-        <input
-          type="text"
-          placeholder={userTitle}
-          onChange={(event) => {
-            changeHandler(event, "userTitle");
-          }}
-        />
-        <input
-          type="text"
-          placeholder={userText}
-          onChange={(event) => {
-            changeHandler(event, "userText");
-          }}
-        />
+        <div>
+          <span>update title:</span>
+          <input
+            type="text"
+            placeholder={userTitle}
+            onChange={(event) => {
+              changeHandler(event, "userTitle");
+            }}
+          />
+        </div>
+        <div>
+          <span>update text:</span>
 
-        <input type="submit" name="update" />
+          <input
+            type="text"
+            placeholder={userText}
+            onChange={(event) => {
+              changeHandler(event, "userText");
+            }}
+          />
+        </div>
+
+        <input type="submit" name="update" className="my-button" />
       </form>
     </>
   );

@@ -44,14 +44,14 @@ export default class InputDiv extends Component {
           <input
             className="titleInput"
             value={this.state.userTitle}
-            placeholder="enter title (if you want)"
+            placeholder="enter title (optional)"
             onChange={(event) => {
               this.handleChangeInTitle(event);
             }}
           ></input>
           <textarea
             value={this.state.userText}
-            placeholder="write stuff"
+            placeholder="write note here"
             onChange={(event) => {
               this.handleChangeInText(event);
             }}

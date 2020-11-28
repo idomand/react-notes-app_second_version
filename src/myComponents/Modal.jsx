@@ -25,8 +25,14 @@ export default function Modal(props) {
               <p>{props.text}</p>
             </div>
           </div>
-          <button onClick={props.closeModal}> Close</button>
-          <button onClick={editMode}> Edit</button>
+          <button className="my-button" onClick={props.closeModal}>
+            {" "}
+            Close
+          </button>
+          <button className="my-button" onClick={editMode}>
+            {" "}
+            Edit
+          </button>
 
           {!isEdit ? null : (
             <ModalInput

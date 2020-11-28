@@ -7,7 +7,6 @@ export default class CardsList extends Component {
     super(props);
     this.state = { cardToDelete: "" };
   }
-
   deleteCardWithKey = (keyNumber) => {
     this.setState({ cardToDelete: keyNumber });
     this.props.data.forEach((element) => {
