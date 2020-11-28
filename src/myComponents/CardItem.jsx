@@ -3,6 +3,14 @@ import Modal from "./Modal";
 
 export default function CardItem(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [userTitle, setUserTitle] = useState(props.title);
+  const [userText, setUserText] = useState(props.text);
+  const [timeHolder, setTimeHolder] = useState(
+    new Date(parseInt(props.timeCreated))
+  );
+  const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
+  //
+  //
   function deleteCard() {
     props.DeleteCallback(props.newId);
   }
@@ -16,12 +24,20 @@ export default function CardItem(props) {
   const closeModal = () => {
     setIsOpen(false);
   };
+  const changeInModalCallback = (element, value) => {
+    if (element === "userTitle") {
+      setUserTitle(value);
+    } else if (element === "userText") {
+      setUserText(value);
+    }
+    setTimeDisplay(Date.now());
+  };
 
   return (
     <div className="card-item">
       <div className="card-top">
-        <h4> {props.title}</h4>
-        {newTime}
+        <h4> {userTitle}</h4>
+        {timeDisplay}
         <button
           className="my-button"
           onClick={() => {
@@ -35,15 +51,16 @@ export default function CardItem(props) {
         </button>
       </div>
       <div className="card-bottom">
-        <p>{props.text}</p>
+        <p>{userText}</p>
       </div>
 
       <Modal
-        title={props.title}
-        text={props.text}
+        title={userTitle}
+        text={userText}
         status={isOpen}
         closeModal={closeModal}
-        timeCreated={newTime}
+        timeCreated={timeDisplay}
+        changeInModalCallback={changeInModalCallback}
       />
     </div>
   );

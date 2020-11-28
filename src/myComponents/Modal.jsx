@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ModalInput from "./ModalInput";
 
 export default function Modal(props) {
   const [isEdit, setIsEdit] = useState(false);
@@ -7,9 +8,7 @@ export default function Modal(props) {
   }
 
   const editMode = () => {
-    console.log("openEditMode");
-    setIsEdit(true);
-    console.log("isEdit", isEdit);
+    setIsEdit(!isEdit);
   };
 
   return (
@@ -28,6 +27,14 @@ export default function Modal(props) {
           </div>
           <button onClick={props.closeModal}> Close</button>
           <button onClick={editMode}> Edit</button>
+
+          {!isEdit ? null : (
+            <ModalInput
+              changeInModalCallback={props.changeInModalCallback}
+              userText={props.text}
+              userTitle={props.title}
+            />
+          )}
         </div>
       </div>
     </>
