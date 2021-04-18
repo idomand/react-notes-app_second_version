@@ -5,9 +5,7 @@ export default function CardItem(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [userTitle, setUserTitle] = useState(props.title);
   const [userText, setUserText] = useState(props.text);
-  const [timeHolder, setTimeHolder] = useState(
-    new Date(parseInt(props.timeCreated))
-  );
+  const [timeHolder] = useState(new Date(parseInt(props.timeCreated)));
   const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
 
   function deleteCard() {
