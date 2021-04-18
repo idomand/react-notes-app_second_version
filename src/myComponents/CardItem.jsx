@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import moment from "moment";
+// import moment from "moment";
 
 export default function CardItem({
   text,
