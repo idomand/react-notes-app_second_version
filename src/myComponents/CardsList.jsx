@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import CardItem from "./CardItem";
 
 export default function CardsList({ notesArray }) {
-  // const [cardToDelete, setCardToDelete] = useState("");
+  const [, setCardToDelete] = useState("");
 
   const deleteCardWithKey = (keyNumber) => {
-    // setCardToDelete(keyNumber);
+    setCardToDelete(keyNumber);
     notesArray.forEach((element) => {
       let index;
       if (element.dateCreated === keyNumber) {

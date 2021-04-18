@@ -17,7 +17,6 @@ export default function InputDiv({ parentCallback }) {
         dateCreated: TIME,
         userTitle: userTitle,
       };
-      console.log("userInfo :>> ", userInfo);
       sendData(userInfo);
       setUserText("");
       setUserTitle("");
@@ -40,7 +39,7 @@ export default function InputDiv({ parentCallback }) {
   return (
     <div id="inputDiv">
       <form onSubmit={(event) => handleSubmit(event)}>
-        <legend>My Notes App -- updated version</legend>
+        <legend>To Do App</legend>
         <input
           className="titleInput"
           value={userTitle}

@@ -1,12 +1,17 @@
-import "./App.css";
-import MainBody from "./myComponents/MainBody";
+import React, { useState } from "react";
+import InputDiv from "../src/myComponents/InputDiv";
+import CardsList from "../src/myComponents/CardsList";
 
-function App() {
+export default function App() {
+  const [notesArray, setNotesArray] = useState([]);
+
+  const callbackFunction = (childData) => {
+    setNotesArray([childData, ...notesArray]);
+  };
   return (
-    <div className="App">
-      <MainBody />
+    <div className="mainBody">
+      <InputDiv parentCallback={callbackFunction} />
+      <CardsList notesArray={notesArray} />
     </div>
   );
 }
-
-export default App;
