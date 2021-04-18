@@ -70,7 +70,7 @@ P {
   display: block;
   margin: auto;
   background-color: lightsalmon;
-  opacity: 90%;
+  /* opacity: 90%; */
   border-radius: 5px;
 }
 
@@ -78,7 +78,7 @@ P {
   margin-left: 3px;
   margin-bottom: 5px;
   background-color: lightsalmon;
-  opacity: 90%;
+  /* opacity: 90%; */
   border-radius: 5px;
 }
 
