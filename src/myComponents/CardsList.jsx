@@ -1,36 +1,32 @@
-import React, { Component } from "react";
-// import { v4 as uuidv4 } from "uuid";
+import React, { useState } from "react";
 import CardItem from "./CardItem";
 
-export default class CardsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { cardToDelete: "" };
-  }
-  deleteCardWithKey = (keyNumber) => {
-    this.setState({ cardToDelete: keyNumber });
-    this.props.data.forEach((element) => {
+export default function CardsList({ notesArray }) {
+  const [cardToDelete, setCardToDelete] = useState("");
+
+  const deleteCardWithKey = (keyNumber) => {
+    setCardToDelete(keyNumber);
+    notesArray.forEach((element) => {
       let index;
       if (element.dateCreated === keyNumber) {
-        index = this.props.data.indexOf(element);
-        this.props.data.splice(index, 1);
+        index = notesArray.indexOf(element);
+        notesArray.splice(index, 1);
       }
     });
   };
-  render() {
-    const results = this.props.data.map((element) => {
-      return (
-        <li key={element.dateCreated}>
-          <CardItem
-            text={element.userText}
-            title={element.userTitle}
-            newId={element.dateCreated}
-            timeCreated={element.dateCreated}
-            DeleteCallback={this.deleteCardWithKey}
-          />
-        </li>
-      );
-    });
-    return <ul className="class-list">{results}</ul>;
-  }
+
+  const results = notesArray.map((element) => {
+    return (
+      <li key={element.dateCreated}>
+        <CardItem
+          text={element.userText}
+          title={element.userTitle}
+          newId={element.dateCreated}
+          timeCreated={element.dateCreated}
+          DeleteCallback={deleteCardWithKey}
+        />
+      </li>
+    );
+  });
+  return <ul className="class-list">{results}</ul>;
 }

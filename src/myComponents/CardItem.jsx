@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import moment from "moment";
 
-export default function CardItem(props) {
+export default function CardItem({
+  text,
+  title,
+  newId,
+  timeCreated,
+  DeleteCallback,
+}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [userTitle, setUserTitle] = useState(props.title);
-  const [userText, setUserText] = useState(props.text);
-  const [timeHolder] = useState(new Date(parseInt(props.timeCreated)));
+  const [userTitle, setUserTitle] = useState(title);
+  const [userText, setUserText] = useState(text);
+  const [timeHolder] = useState(new Date(parseInt(timeCreated)));
   const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
 
   function deleteCard() {
-    props.DeleteCallback(props.newId);
+    DeleteCallback(newId);
   }
   const openModal = () => {
     setIsOpen(true);
@@ -30,7 +37,7 @@ export default function CardItem(props) {
     <div className="card-item">
       <div className="card-top">
         <h4> {userTitle}</h4>
-        {timeDisplay}
+        {timeCreated}
         <button
           className="my-button"
           onClick={() => {

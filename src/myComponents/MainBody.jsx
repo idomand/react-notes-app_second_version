@@ -1,25 +1,17 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import InputDiv from "./InputDiv";
 import CardsList from "./CardsList";
 
-export default class MainBody extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { notesArray: [] };
-  }
+export default function MainBody() {
+  const [notesArray, setNotesArray] = useState([]);
 
-  callbackFunction = (childData) => {
-    this.setState((state) => {
-      return { notesArray: [childData, ...state.notesArray] };
-    });
+  const callbackFunction = (childData) => {
+    setNotesArray([childData, ...notesArray]);
   };
-
-  render() {
-    return (
-      <div className="mainBody">
-        <InputDiv parentCallback={this.callbackFunction} />
-        <CardsList data={this.state.notesArray} />
-      </div>
-    );
-  }
+  return (
+    <div className="mainBody">
+      <InputDiv parentCallback={callbackFunction} />
+      <CardsList notesArray={notesArray} />
+    </div>
+  );
 }
