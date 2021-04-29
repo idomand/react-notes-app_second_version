@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import ModalInput from "../ModalInput/ModalInput";
 import "./CardModal.css";
-export default function CardModal(props) {
+export default function CardModal({
+  cardTitle,
+  cardText,
+  status,
+  closeModal,
+  timeCreated,
+  changeInModalCallback,
+}) {
   const [isEdit, setIsEdit] = useState(false);
-  if (props.status === false) {
+  if (status === false) {
     return null;
   }
 
@@ -18,14 +25,14 @@ export default function CardModal(props) {
         <div className="modal-container">
           <div className="card-item">
             <div className="card-top">
-              <h4>{props.title}</h4>
-              {props.timeCreated}
+              <h4>{cardTitle}</h4>
+              {timeCreated}
             </div>
             <div className="card-bottom">
-              <p>{props.text}</p>
+              <p>{cardText}</p>
             </div>
           </div>
-          <button className="my-button" onClick={props.closeModal}>
+          <button className="my-button" onClick={closeModal}>
             {" "}
             Close
           </button>
@@ -36,9 +43,9 @@ export default function CardModal(props) {
 
           {!isEdit ? null : (
             <ModalInput
-              changeInModalCallback={props.changeInModalCallback}
-              userText={props.text}
-              userTitle={props.title}
+              changeInModalCallback={changeInModalCallback}
+              cardText={cardText}
+              cardTitle={cardTitle}
             />
           )}
         </div>

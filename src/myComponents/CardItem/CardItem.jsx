@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Modal from "../CardModal/CardModal";
-// import moment from "moment";
+import CardModal from "../CardModal/CardModal";
+import moment from "moment";
 import "./CardItem.css";
 export default function CardItem({
   text,
@@ -10,10 +10,11 @@ export default function CardItem({
   DeleteCallback,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [userTitle, setUserTitle] = useState(title);
-  const [userText, setUserText] = useState(text);
-  const [timeHolder] = useState(new Date(parseInt(timeCreated)));
-  const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
+  const [cardTitle, setCardTitle] = useState(title);
+  const [cardText, setCardText] = useState(text);
+  const [timeToDisplay, setTimeToDisplay] = useState(timeCreated);
+  // const [timeHolder] = useState(new Date(parseInt(timeCreated)));
+  // const [timeDisplay, setTimeDisplay] = useState(timeHolder.toLocaleString());
 
   function deleteCard() {
     DeleteCallback(newId);
@@ -25,19 +26,21 @@ export default function CardItem({
     setIsOpen(false);
   };
   const changeInModalCallback = (element, value) => {
-    if (element === "userTitle") {
-      setUserTitle(value);
-    } else if (element === "userText") {
-      setUserText(value);
+    if (element === "cardTitle") {
+      setCardTitle(value);
+    } else if (element === "cardText") {
+      setCardText(value);
     }
-    setTimeDisplay(new Date().toLocaleString());
+    const newCreatedAtTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+
+    setTimeToDisplay(newCreatedAtTime);
   };
 
   return (
     <div className="card-item">
       <div className="card-top">
-        <h4> {userTitle}</h4>
-        {timeCreated}
+        <h4> {cardTitle}</h4>
+        {timeToDisplay}
         <button
           className="my-button"
           onClick={() => {
@@ -51,15 +54,15 @@ export default function CardItem({
         </button>
       </div>
       <div className="card-bottom">
-        <p>{userText}</p>
+        <p>{cardText}</p>
       </div>
 
-      <Modal
-        title={userTitle}
-        text={userText}
+      <CardModal
+        cardTitle={cardTitle}
+        cardText={cardText}
         status={isOpen}
         closeModal={closeModal}
-        timeCreated={timeDisplay}
+        timeCreated={timeToDisplay}
         changeInModalCallback={changeInModalCallback}
       />
     </div>

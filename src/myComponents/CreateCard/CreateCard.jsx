@@ -1,40 +1,31 @@
 import React, { useState } from "react";
 import moment from "moment";
-import "./InputDiv.css";
+import "./CreateCard.css";
 
-export default function InputDiv({ parentCallback }) {
-  const [userText, setUserText] = useState("");
+export default function CreateCard({ parentCallback }) {
+  const [cardText, setCardText] = useState("");
   // const [timeCreated, setTimeCreated] = useState(null);
   // const [dateCreated, setDateCreated] = useState("");
-  const [userTitle, setUserTitle] = useState("");
+  const [cardTitle, setCardTitle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (userText) {
+    if (cardText) {
       const TIME = moment().format("MMMM Do YYYY, h:mm:ss a");
       // const newTime = new Date().toString();
-      const userInfo = {
-        userText: userText,
+      const cardInfo = {
+        cardText: cardText,
         dateCreated: TIME,
-        userTitle: userTitle,
+        cardTitle: cardTitle,
       };
-      sendData(userInfo);
-      setUserText("");
-      setUserTitle("");
+      sendData(cardInfo);
+      setCardText("");
+      setCardTitle("");
     }
   };
 
   const sendData = (message) => {
     parentCallback(message);
-  };
-  const handleChangeInText = (event) => {
-    const value = event.target.value;
-    setUserText(value);
-    // setDateCreated("");
-  };
-  const handleChangeInTitle = (event) => {
-    const value = event.target.value;
-    setUserTitle(value);
   };
 
   return (
@@ -43,17 +34,17 @@ export default function InputDiv({ parentCallback }) {
         <legend>To Do App</legend>
         <input
           className="title-input"
-          value={userTitle}
+          value={cardTitle}
           placeholder="enter title (optional)"
           onChange={(event) => {
-            handleChangeInTitle(event);
+            setCardTitle(event.target.value);
           }}
         ></input>
         <textarea
-          value={userText}
+          value={cardText}
           placeholder="write note here"
           onChange={(event) => {
-            handleChangeInText(event);
+            setCardText(event.target.value);
           }}
         />
         <input className="text-input" type="submit" name="add" value="add" />

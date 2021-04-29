@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import InputDiv from "../src/myComponents/InputDiv/InputDiv";
+import CreateCard from "./myComponents/CreateCard/CreateCard";
 import CardsList from "../src/myComponents/CardsList/CardsList";
 
 export default function App() {
-  const [notesArray, setNotesArray] = useState([]);
+  const [cardsArray, setCardsArray] = useState([]);
 
   const callbackFunction = (childData) => {
-    setNotesArray([childData, ...notesArray]);
+    setCardsArray([childData, ...cardsArray]);
   };
   return (
     <div className="main-wrapper">
-      <InputDiv parentCallback={callbackFunction} />
-      <CardsList notesArray={notesArray} />
+      <CreateCard parentCallback={callbackFunction} />
+      <CardsList cardsArray={cardsArray} />
     </div>
   );
 }

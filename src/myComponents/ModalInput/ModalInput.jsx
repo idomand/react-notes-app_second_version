@@ -1,22 +1,29 @@
 import React, { useState } from "react";
 import "./ModalInput.css";
-export default function ModalInput(props) {
-  const [userTitle, setUserTitle] = useState(props.userTitle);
-  const [userText, setUserText] = useState(props.userText);
+export default function ModalInput({
+  changeInModalCallback,
+  cardTitle,
+  cardText,
+}) {
+  const [newCardTitle, setNewCardTitle] = useState(cardTitle);
+  const [newCardText, setNewCardText] = useState(cardText);
 
   const submitUpdate = (event) => {
     event.preventDefault();
-
-    if (userTitle !== props.userTitle || userText !== props.userText) {
-      props.changeInModalCallback("userTitle", userTitle);
-      props.changeInModalCallback("userText", userText);
+    console.log("newCardTitle :>> ", newCardTitle);
+    console.log("cardTitle :>> ", cardTitle);
+    console.log("newCardText :>> ", newCardText);
+    console.log("cardText :>> ", cardText);
+    if (cardTitle !== newCardTitle || cardText !== newCardText) {
+      changeInModalCallback("cardTitle", newCardTitle);
+      changeInModalCallback("cardText", newCardText);
     }
   };
   const changeHandler = (event, element) => {
-    if (element === "userTitle") {
-      setUserTitle(event.target.value);
-    } else if (element === "userText") {
-      setUserText(event.target.value);
+    if (element === "cardText") {
+      setNewCardText(event.target.value);
+    } else if (element === "cardTitle") {
+      setNewCardTitle(event.target.value);
     }
   };
 
@@ -32,9 +39,9 @@ export default function ModalInput(props) {
           <span>update title:</span>
           <input
             type="text"
-            placeholder={userTitle}
+            placeholder={cardTitle}
             onChange={(event) => {
-              changeHandler(event, "userTitle");
+              changeHandler(event, "cardTitle");
             }}
           />
         </div>
@@ -43,9 +50,9 @@ export default function ModalInput(props) {
 
           <input
             type="text"
-            placeholder={userText}
+            placeholder={cardText}
             onChange={(event) => {
-              changeHandler(event, "userText");
+              changeHandler(event, "cardText");
             }}
           />
         </div>
