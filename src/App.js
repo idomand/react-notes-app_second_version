@@ -6,10 +6,14 @@ import localForage from "localforage";
 export default function App() {
   const [cardsArray, setCardsArray] = useState([]);
   const [numberOfNotes, setNumberOfNotes] = useState(0);
+
   useEffect(() => {
     localForage.length().then((result) => {
       setNumberOfNotes(result);
     });
+  }, [cardsArray]);
+
+  useEffect(() => {
     localForage.iterate((value) => {
       setCardsArray((cardsArray) => [value, ...cardsArray]);
     });
