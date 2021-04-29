@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../CardModal/CardModal";
 // import moment from "moment";
-
+import "./CardItem.css";
 export default function CardItem({
   text,
   title,

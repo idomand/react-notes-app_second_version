@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import InputDiv from "../src/myComponents/InputDiv";
-import CardsList from "../src/myComponents/CardsList";
+import InputDiv from "../src/myComponents/InputDiv/InputDiv";
+import CardsList from "../src/myComponents/CardsList/CardsList";
 
 export default function App() {
   const [notesArray, setNotesArray] = useState([]);
@@ -9,7 +9,7 @@ export default function App() {
     setNotesArray([childData, ...notesArray]);
   };
   return (
-    <div className="mainBody">
+    <div className="main-wrapper">
       <InputDiv parentCallback={callbackFunction} />
       <CardsList notesArray={notesArray} />
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import "./InputDiv.css";
 
 export default function InputDiv({ parentCallback }) {
   const [userText, setUserText] = useState("");
@@ -37,11 +38,11 @@ export default function InputDiv({ parentCallback }) {
   };
 
   return (
-    <div id="inputDiv">
+    <div className="input-wrapper">
       <form onSubmit={(event) => handleSubmit(event)}>
         <legend>To Do App</legend>
         <input
-          className="titleInput"
+          className="title-input"
           value={userTitle}
           placeholder="enter title (optional)"
           onChange={(event) => {
@@ -55,7 +56,7 @@ export default function InputDiv({ parentCallback }) {
             handleChangeInText(event);
           }}
         />
-        <input className="textInput" type="submit" name="add" value="add" />
+        <input className="text-input" type="submit" name="add" value="add" />
       </form>
     </div>
   );

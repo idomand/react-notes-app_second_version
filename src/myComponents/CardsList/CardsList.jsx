@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CardItem from "./CardItem";
-
+import CardItem from "../CardItem/CardItem";
+import "./CardsList.css";
 export default function CardsList({ notesArray }) {
   const [, setCardToDelete] = useState("");
 

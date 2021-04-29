@@ -12,106 +12,32 @@ code {
     monospace;
 }
 /* ====================================================== */
-.mainBody {
-  background-color: darkgrey;
-  border: black 1px solid;
-  border-radius: 10px;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  justify-self: center;
-  text-align: center;
+span {
+  margin-right: 10px;
 }
 
-#inputDiv {
-  background-color: lightgray;
-  margin: 25px;
-  border-radius: 15px;
-}
-
-.class-list {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  padding: 0;
-}
-
-.card-item {
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-top > h4 {
-  margin: 0;
-}
-.card-bottom {
-  border: black 0.2px solid;
-  padding: 3px;
-  background-color: lightsalmon;
-  border-radius: 15px;
-}
 P {
   padding: 0;
   margin: 2px;
 }
 
-.titleInput {
-  display: block;
-  margin: 5px auto;
-  height: 15px;
-}
-.textInput {
-  display: block;
-  margin: auto;
-  background-color: lightsalmon;
-  /* opacity: 90%; */
-  border-radius: 5px;
+.main-wrapper {
+  background-color: darkgrey;
+  border: black 1px solid;
+  border-radius: 10px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  height: 95vh;
+  justify-self: center;
+  text-align: center;
 }
 
 .my-button {
   margin-left: 3px;
   margin-bottom: 5px;
   background-color: lightsalmon;
-  /* opacity: 90%; */
   border-radius: 5px;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0px;
-  z-index: 100;
-}
-
-.modalDiv {
-  background-color: wheat;
-  border-radius: 15px;
-  border: 3px solid black;
-  padding: 5px;
-}
-
-.overlays {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-}
-
-span {
-  margin-right: 10px;
-}
-
-.modelInput > input {
-  margin: auto;
+  cursor: pointer;
 }

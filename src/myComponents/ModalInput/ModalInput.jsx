@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./ModalInput.css";
 export default function ModalInput(props) {
   const [userTitle, setUserTitle] = useState(props.userTitle);
   const [userText, setUserText] = useState(props.userText);
@@ -23,7 +23,7 @@ export default function ModalInput(props) {
   return (
     <>
       <form
-        className="modelInput"
+        className="model-input"
         onSubmit={(event) => {
           submitUpdate(event);
         }}

@@ -1,0 +1,22 @@
+.card-item {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+.card-item:hover {
+  background-color: lightgray;
+}
+
+.card-top > h4 {
+  margin: 0;
+}
+.card-bottom {
+  border: black 0.2px solid;
+  padding: 3px;
+  background-color: lightsalmon;
+  border-radius: 15px;
+}
