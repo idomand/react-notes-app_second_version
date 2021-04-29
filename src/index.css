@@ -29,9 +29,12 @@ P {
   display: flex;
   flex-direction: column;
   width: 95vw;
-  height: 95vh;
+  min-height: 95vh;
   justify-self: center;
   text-align: center;
+}
+.nots-number {
+  margin: 0;
 }
 
 .my-button {
@@ -40,4 +43,14 @@ P {
   background-color: lightsalmon;
   border-radius: 5px;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  body {
+    background-color: darkgray;
+  }
+  .main-wrapper {
+    width: 100%;
+    border: none;
+    margin: 0;
+  }
 }

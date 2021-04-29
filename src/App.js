@@ -25,9 +25,9 @@ export default function App() {
   return (
     <div className="main-wrapper">
       <CreateCard parentCallback={callbackFunction} />
-      <h1>
+      <h3 className="nots-number">
         number of notes: <strong>{numberOfNotes}</strong>
-      </h1>
+      </h3>
       <CardsList cardsArray={cardsArray} />
     </div>
   );
