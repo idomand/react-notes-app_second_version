@@ -5,11 +5,10 @@ import localForage from "localforage";
 
 export default function App() {
   const [cardsArray, setCardsArray] = useState([]);
-  console.log(`cardsArray`, cardsArray);
-
+  const [numberOfNotes, setNumberOfNotes] = useState(0);
   useEffect(() => {
     localForage.length().then((result) => {
-      console.log(`result`, result);
+      setNumberOfNotes(result);
     });
     localForage.iterate((value) => {
       setCardsArray((cardsArray) => [value, ...cardsArray]);
@@ -22,6 +21,9 @@ export default function App() {
   return (
     <div className="main-wrapper">
       <CreateCard parentCallback={callbackFunction} />
+      <h1>
+        number of notes: <strong>{numberOfNotes}</strong>
+      </h1>
       <CardsList cardsArray={cardsArray} />
     </div>
   );
