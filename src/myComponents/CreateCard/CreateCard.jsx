@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import moment from "moment";
 import "./CreateCard.css";
+import localForage from "localforage";
 
 export default function CreateCard({ parentCallback }) {
   const [cardText, setCardText] = useState("");
-  // const [timeCreated, setTimeCreated] = useState(null);
-  // const [dateCreated, setDateCreated] = useState("");
+
   const [cardTitle, setCardTitle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (cardText) {
       const TIME = moment().format("MMMM Do YYYY, h:mm:ss a");
-      // const newTime = new Date().toString();
       const cardInfo = {
         cardText: cardText,
         dateCreated: TIME,
         cardTitle: cardTitle,
       };
       sendData(cardInfo);
+      localForage.setItem(TIME, cardInfo);
       setCardText("");
       setCardTitle("");
     }

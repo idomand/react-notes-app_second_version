@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import CardItem from "../CardItem/CardItem";
 import "./CardsList.css";
+import localForage from "localforage";
+
 export default function CardsList({ cardsArray }) {
   const [, setCardToDelete] = useState("");
 
   const deleteCardWithKey = (keyNumber) => {
+    console.log("keyNumber :>> ", keyNumber);
     setCardToDelete(keyNumber);
     cardsArray.forEach((element) => {
       let index;
       if (element.dateCreated === keyNumber) {
+        localForage.removeItem(keyNumber);
         index = cardsArray.indexOf(element);
         cardsArray.splice(index, 1);
       }
@@ -16,7 +20,6 @@ export default function CardsList({ cardsArray }) {
   };
 
   const results = cardsArray.map((element) => {
-    console.log("element :>> ", element);
     return (
       <li key={element.dateCreated}>
         <CardItem
