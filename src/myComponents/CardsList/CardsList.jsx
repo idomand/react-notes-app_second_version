@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CardItem from "../CardItem/CardItem";
-import "./CardsList.css";
+import "./CardsList.scss";
 import localForage from "localforage";
 
 export default function CardsList({ cardsArray }) {

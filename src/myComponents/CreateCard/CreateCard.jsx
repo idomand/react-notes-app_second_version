@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import "./CreateCard.css";
+import "./CreateCard.scss";
 import localForage from "localforage";
 
 export default function CreateCard({ parentCallback }) {

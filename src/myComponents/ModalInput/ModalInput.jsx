@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ModalInput.css";
+import "./ModalInput.scss";
 export default function ModalInput({
   changeInModalCallback,
   cardTitle,

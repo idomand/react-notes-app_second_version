@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CardModal from "../CardModal/CardModal";
 import moment from "moment";
-import "./CardItem.css";
+import "./CardItem.scss";
+
 export default function CardItem({
   text,
   title,
@@ -39,19 +40,27 @@ export default function CardItem({
   return (
     <div className="card-item">
       <div className="card-top">
-        <h4> {cardTitle}</h4>
+        <div className="card-header">
+          <h4>Title:</h4>
+          <div className="card-item-title">
+            <h4> {cardTitle || "Task note"}</h4>
+          </div>
+          <div>
+            {" "}
+            <button
+              className="my-button"
+              onClick={() => {
+                deleteCard();
+              }}
+            >
+              Delete
+            </button>
+            <button className="my-button" onClick={openModal}>
+              edit
+            </button>
+          </div>
+        </div>
         {timeToDisplay}
-        <button
-          className="my-button"
-          onClick={() => {
-            deleteCard();
-          }}
-        >
-          X
-        </button>
-        <button className="my-button" onClick={openModal}>
-          info
-        </button>
       </div>
       <div className="card-bottom">
         <p>{cardText}</p>
