@@ -23,7 +23,7 @@ export default function CardModal({
       <div className="overlays"></div>
       <div className="modal-wrapper">
         <div className="modal-container">
-          <button className="my-button" onClick={closeModal}>
+          <button className="my-button hvr-grow-rotate" onClick={closeModal}>
             {" "}
             X
           </button>

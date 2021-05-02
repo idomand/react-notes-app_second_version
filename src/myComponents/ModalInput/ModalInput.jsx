@@ -57,7 +57,11 @@ export default function ModalInput({
           />
         </div>
 
-        <input type="submit" name="update" className="my-button" />
+        <input
+          type="submit"
+          name="update"
+          className="my-button hvr-grow-rotate"
+        />
       </form>
     </>
   );

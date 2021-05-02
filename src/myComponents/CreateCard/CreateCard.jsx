@@ -47,7 +47,12 @@ export default function CreateCard({ parentCallback }) {
             setCardText(event.target.value);
           }}
         />
-        <input className="text-input" type="submit" name="add" value="add" />
+        <input
+          className="text-input hvr-grow-rotate"
+          type="submit"
+          name="add"
+          value="add"
+        />
       </form>
     </div>
   );

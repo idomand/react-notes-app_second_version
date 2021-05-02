@@ -48,14 +48,14 @@ export default function CardItem({
           <div>
             {" "}
             <button
-              className="my-button"
+              className="my-button hvr-grow-rotate"
               onClick={() => {
                 deleteCard();
               }}
             >
               Delete
             </button>
-            <button className="my-button" onClick={openModal}>
+            <button className="my-button hvr-grow-rotate" onClick={openModal}>
               edit
             </button>
           </div>
